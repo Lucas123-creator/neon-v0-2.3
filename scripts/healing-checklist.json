@@ -1,0 +1,151 @@
+{
+  "healingChecklist": {
+    "infrastructure": [
+      {
+        "id": "monorepo-setup",
+        "title": "Verify Monorepo Structure",
+        "description": "Ensure proper workspace configuration and package management",
+        "priority": "high",
+        "automated": true,
+        "checks": [
+          "pnpm-workspace.yaml exists",
+          "apps/ directory structure",
+          "packages/ directory structure",
+          "Proper dependency hoisting"
+        ]
+      },
+      {
+        "id": "build-pipeline",
+        "title": "Build Pipeline Health",
+        "description": "Ensure all build tools and processes work correctly",
+        "priority": "high",
+        "automated": true,
+        "checks": ["TypeScript compilation", "ESLint configuration", "Prettier formatting", "Next.js build success"]
+      }
+    ],
+    "frontend": [
+      {
+        "id": "routing-system",
+        "title": "Routing System Audit",
+        "description": "Verify all expected routes exist and function",
+        "priority": "critical",
+        "automated": true,
+        "routes": [
+          "/",
+          "/agents",
+          "/campaigns",
+          "/strategy",
+          "/outreach",
+          "/seo",
+          "/brand-voice",
+          "/billing",
+          "/settings",
+          "/support",
+          "/analytics",
+          "/ab-testing",
+          "/coordination"
+        ]
+      },
+      {
+        "id": "component-system",
+        "title": "Component System Health",
+        "description": "Audit all UI components for completeness and functionality",
+        "priority": "high",
+        "automated": true,
+        "components": [
+          "Layout components",
+          "Navigation components",
+          "Form components",
+          "Data display components",
+          "Feedback components",
+          "Chart components"
+        ]
+      },
+      {
+        "id": "data-integration",
+        "title": "Data Integration Layer",
+        "description": "Verify tRPC integration and data flow",
+        "priority": "critical",
+        "automated": true,
+        "checks": ["tRPC provider setup", "API route mapping", "Type safety", "Error handling", "Loading states"]
+      }
+    ],
+    "ui-ux": [
+      {
+        "id": "design-system",
+        "title": "Design System Consistency",
+        "description": "Ensure consistent styling and theming",
+        "priority": "medium",
+        "automated": false,
+        "checks": [
+          "Color scheme consistency",
+          "Typography system",
+          "Spacing system",
+          "Component variants",
+          "Dark/light mode support"
+        ]
+      },
+      {
+        "id": "responsive-design",
+        "title": "Responsive Design",
+        "description": "Verify mobile and tablet compatibility",
+        "priority": "medium",
+        "automated": false,
+        "checks": ["Mobile navigation", "Tablet layouts", "Touch interactions", "Viewport handling"]
+      }
+    ],
+    "functionality": [
+      {
+        "id": "core-features",
+        "title": "Core Feature Completeness",
+        "description": "Verify all core features are implemented",
+        "priority": "critical",
+        "automated": false,
+        "features": [
+          "Agent management",
+          "Campaign creation/editing",
+          "Strategy planning",
+          "Analytics dashboard",
+          "Settings management",
+          "User authentication"
+        ]
+      },
+      {
+        "id": "user-flows",
+        "title": "User Flow Testing",
+        "description": "Test complete user journeys",
+        "priority": "high",
+        "automated": false,
+        "flows": [
+          "Onboarding flow",
+          "Campaign creation flow",
+          "Agent configuration flow",
+          "Settings update flow",
+          "Billing management flow"
+        ]
+      }
+    ]
+  },
+  "automatedFixes": [
+    {
+      "issue": "Missing tRPC provider",
+      "fix": "Add TRPCProvider to layout.tsx",
+      "script": "fix-trpc-provider.ts"
+    },
+    {
+      "issue": "Missing route components",
+      "fix": "Generate missing page components",
+      "script": "generate-missing-routes.ts"
+    },
+    {
+      "issue": "Type errors",
+      "fix": "Update type definitions",
+      "script": "fix-type-errors.ts"
+    },
+    {
+      "issue": "Lint errors",
+      "fix": "Auto-fix ESLint issues",
+      "script": "eslint --fix"
+    }
+  ]
+}
