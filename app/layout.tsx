@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <SidebarProvider defaultOpen={false}>
+          <SidebarProvider defaultOpen={true}>
             <AppSidebar />
             <SidebarInset>
               <main className="flex-1 overflow-auto p-4">{children}</main>

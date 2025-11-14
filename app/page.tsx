@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Bot, Megaphone, Target, TrendingUp, DollarSign, Activity, Plus } from "lucide-react"
+import Link from "next/link"
 
 export default function DashboardPage() {
   const metrics = [
@@ -176,22 +177,30 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-              <Button variant="outline" className="h-20 flex-col bg-transparent">
-                <Megaphone className="h-6 w-6 mb-2" />
-                Create Campaign
-              </Button>
-              <Button variant="outline" className="h-20 flex-col bg-transparent">
-                <Target className="h-6 w-6 mb-2" />
-                New Strategy
-              </Button>
-              <Button variant="outline" className="h-20 flex-col bg-transparent">
-                <Bot className="h-6 w-6 mb-2" />
-                Configure Agent
-              </Button>
-              <Button variant="outline" className="h-20 flex-col bg-transparent">
-                <Activity className="h-6 w-6 mb-2" />
-                View Analytics
-              </Button>
+              <Link href="/campaigns">
+                <Button variant="outline" className="h-20 w-full flex-col bg-transparent neon-cta card-lift">
+                  <Megaphone className="h-6 w-6 mb-2" />
+                  Create Campaign
+                </Button>
+              </Link>
+              <Link href="/strategy">
+                <Button variant="outline" className="h-20 w-full flex-col bg-transparent card-lift">
+                  <Target className="h-6 w-6 mb-2" />
+                  New Strategy
+                </Button>
+              </Link>
+              <Link href="/agents">
+                <Button variant="outline" className="h-20 w-full flex-col bg-transparent card-lift">
+                  <Bot className="h-6 w-6 mb-2" />
+                  Configure Agent
+                </Button>
+              </Link>
+              <Link href="/analytics">
+                <Button variant="outline" className="h-20 w-full flex-col bg-transparent card-lift">
+                  <Activity className="h-6 w-6 mb-2" />
+                  View Analytics
+                </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>

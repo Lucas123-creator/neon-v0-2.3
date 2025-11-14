@@ -1,4 +1,6 @@
 import { DashboardHeader } from "@/components/dashboard-header"
+import AnalyticsChartsClient from "@/components/analytics/AnalyticsChartsClient"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -174,6 +176,7 @@ export default function AnalyticsPage() {
       <DashboardHeader title="Analytics" description="Comprehensive analytics and performance insights" />
 
       <div className="flex-1 space-y-6 p-6">
+        <AnalyticsChartsClient />
         {/* KPI Metrics */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {kpiMetrics.map((metric) => (
@@ -302,8 +305,13 @@ export default function AnalyticsPage() {
           <TabsContent value="campaigns" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Campaign Performance</CardTitle>
-                <CardDescription>Detailed performance metrics for all campaigns</CardDescription>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle>Campaign Performance</CardTitle>
+                    <CardDescription>Detailed performance metrics for all campaigns</CardDescription>
+                  </div>
+                  <Link href="/campaigns" className="text-sm text-primary hover:underline">Optimize Campaigns →</Link>
+                </div>
               </CardHeader>
               <CardContent>
                 <Table>

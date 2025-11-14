@@ -37,6 +37,7 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --glass-bg: 240 6% 10% / 0.04;
   }
 
   .dark {
@@ -73,6 +74,28 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+@layer utilities {
+  .glass-surface {
+    @apply bg-background/30; /* fallback */
+    background: color-mix(in oklab, hsl(var(--background)) 90%, transparent);
+    backdrop-filter: blur(8px);
+  }
+  .neon-border {
+    box-shadow: 0 0 0 1px hsl(var(--ring) / 0.2), 0 0 12px hsl(var(--ring) / 0.25);
+  }
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+  .neon-cta {
+    @apply rounded-full font-medium transition text-primary-foreground;
+    background: linear-gradient(90deg, hsl(var(--primary)), color-mix(in oklab, hsl(var(--primary)), #7A5FFF 50%));
+    box-shadow: 0 0 .25rem color-mix(in oklab, hsl(var(--primary)), white 10%), 0 0 1rem hsl(var(--primary));
+  }
+  .neon-cta:hover { filter: brightness(1.05); }
+  .card-lift { transition: transform .2s ease, box-shadow .2s ease; }
+  .card-lift:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -12px rgb(0 0 0 / .35); }
 }
 
 @layer base {
